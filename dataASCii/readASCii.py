@@ -14,7 +14,7 @@ def findstar(data,table,radec,i):
     tmp=list((np.array(ra)-radec[0])**2+(np.array(dec)-radec[1])**2)
     num=tmp.index(np.min(np.array(tmp)))
     table.add_row(data[num])
-    table[i]['NUMBER']=1.0*i
+    table[i]['NUMBER']=35428.18568*i
 
 target_ra=307.725
 target_dec=6.4293
