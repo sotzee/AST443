@@ -47,8 +47,9 @@ for i in range(10):
     #print data_guiding[i]['FLUX_APER_2']
     dummy = data_guiding[i]['FLUX_APER_2']
     for j in range(len(dummy)):
-        if (dummy[j] > 1.02) or (dummy[j] < 0.98):
+        if (dummy[j] > 1.03) or (dummy[j] < 0.97):
             data_guiding[i]['FLUXERR_APER_2'][j] = 1.e40
+            print data_guiding[i]['FLUX_APER_2'][j]
 
     #ax.errorbar(data_guiding[i]['NUMBER'],data_guiding[i]['FLUX_APER_2'],yerr=data_guiding[i]['FLUXERR_APER_2'],fmt='o')
     #ax.set_ylim([0.95,1.05])
@@ -81,39 +82,60 @@ data_guiding_flux_master=data_guiding_flux_master/data_guiding_error_master
 
 transit_ratio=data_target['FLUX_APER_2']/data_guiding_flux_master
 
-########### Let's average one more time - unweighted
-print len(transit_ratio)
-'''
-ratio_ave = transit_ratio.sum()/len(transit_ratio)
-for i in range(len(transit_ratio)):
-    transit_ratio[i] = transit_ratio[i]/ratio_ave
-'''
 ### Bin it up - 5 minutes bins
-binWidth = 2. #mins
-num_bin = int(np.ceil(max(data_target['NUMBER'])/60000./binWidth))-1
-bindata = np.zeros(num_bin)
+binWidth = 5. #mins
+num_bin = int(np.ceil(max(data_target['NUMBER'])/60000./binWidth))
+bindata = np.zeros([num_bin,2])
+binerror = np.zeros(num_bin)
 # index for transit_ratio
 j = 0
 for i in range(num_bin):
     num_point = 0
     while int(data_target['NUMBER'][j]/60000./binWidth) < (i+1):
         print i,j,data_target['NUMBER'][j]/60000.
-        bindata[i] += transit_ratio[j]
+        bindata[i,1] += transit_ratio[j]
+        bindata[i,0] += data_target['NUMBER'][j]/60000.
         num_point += 1
         j+=1
         if j == len(transit_ratio):
             break
     print num_point
-    bindata[i] = bindata[i]/num_point
-print bindata
-print np.array(range(num_bin))*binWidth+binWidth/2.
+    bindata[i,1] = bindata[i,1]/num_point
+    bindata[i,0] = bindata[i,0]/num_point
+
+
+# rerun loop to get errors
+j = 0
+for i in range(num_bin):
+    num_point = 0
+    while int(data_target['NUMBER'][j]/60000./binWidth) < (i+1):
+        binerror[i] += (transit_ratio[j]-bindata[i,1])**2
+        num_point += 1
+        j+=1
+        if j == len(transit_ratio):
+            break
+    binerror[i] = np.sqrt(binerror[i]/num_point/(num_point-1))
+
+
+# Let's normalize one last time
+bindata_ave = 0.
+num_point = 0
+for i in range(len(bindata)):
+    if (i<7) or (i>29):
+        print i
+        bindata_ave += bindata[i,1]
+        num_point += 1
+bindata_ave = bindata_ave/float(num_point)
+bindata[:,1] = bindata[:,1]/bindata_ave
+
 #plt.plot(data_target['NUMBER'],transit_ratio,'o',label='wasp-2')
-plt.plot(np.array(range(num_bin))*5.+2.5,bindata,'o',label='wasp-2')
+#plt.plot(bindata[:,0],bindata[:,1],'o',label='wasp-2')
+plt.errorbar(bindata[:,0],bindata[:,1],yerr=binerror,fmt='o',label='wasp-2')
 #plt.plot(data_target['NUMBER'],data_target['FLUX_APER_2'],label='wasp-2')
 #sys.exit()
 plt.legend()
-plt.xlabel('time')
-plt.ylabel('ratio')
+plt.xlabel('Time(min)')
+plt.ylabel('Normalized flux ratio')
 #plt.ylim([1.45,1.55])
-#plt.savefig('guiding_newbest_elimbad_ave.png')
+plt.savefig('final_lightcurve.png')
 plt.show()
