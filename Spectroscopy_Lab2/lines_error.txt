@@ -1,0 +1,89 @@
+1: center =  4363.09, flux = 1.42E-14, eqw =  INDEF, gfwhm =  3.201
+1: center =  4363.06, flux = 1.28E-14, eqw = -402.3, gfwhm =  3.016
+1: center =  4363.05, flux = 1.31E-14, eqw = -1098., gfwhm =   3.11
+1: center =  4363.07, flux = 1.28E-14, eqw = -726.5, gfwhm =  3.019
+1: center =  4363.05, flux = 1.25E-14, eqw = -175.4, gfwhm =  2.984
+
+1: center =  4958.99, flux = 4.04E-13, eqw = -749.3, gfwhm =  2.844
+1: center =  4958.99, flux = 4.06E-13, eqw = -1830., gfwhm =  2.853
+1: center =  4958.99, flux = 4.08E-13, eqw =  INDEF, gfwhm =  2.862
+1: center =  4958.99, flux = 4.09E-13, eqw =  INDEF, gfwhm =  2.865
+1: center =  4958.99, flux = 4.07E-13, eqw = -4115., gfwhm =  2.857
+
+1: center =  5007.01, flux = 1.38E-12, eqw = -2903., gfwhm =  2.841
+1: center =  5007.01, flux = 1.38E-12, eqw =  INDEF, gfwhm =  2.846
+1: center =  5007.02, flux = 1.38E-12, eqw = -2.2E4, gfwhm =  2.844
+1: center =  5007.02, flux = 1.38E-12, eqw = -2.2E4, gfwhm =  2.844
+1: center =  5007.02, flux = 1.38E-12, eqw = -1.2E5, gfwhm =  2.845
+
+1: center =  6714.71, flux = 1.69E-15, eqw = -7.198, gfwhm =  3.679
+1: center =   6714.8, flux = 2.38E-15, eqw = -14.49, gfwhm =  4.774
+1: center =  6714.72, flux = 2.52E-15, eqw = -16.45, gfwhm =     5.
+1: center =  6714.73, flux = 1.97E-15, eqw = -9.706, gfwhm =  4.085
+1: center =  6714.65, flux = 1.73E-15, eqw = -7.836, gfwhm =   3.57
+
+1: center =  6731.67, flux = 3.39E-15, eqw = -21.68, gfwhm =  4.758
+1: center =  6731.43, flux = 3.93E-15, eqw = -33.17, gfwhm =  5.455
+1: center =   6731.6, flux = 3.47E-15, eqw = -22.74, gfwhm =  4.892
+1: center =  6731.91, flux = 2.67E-15, eqw = -11.82, gfwhm =  3.947
+1: center =  6732.06, flux = 2.53E-15, eqw =  -10.8, gfwhm =  3.702
+
+1: center =  6676.85, flux = 3.44E-15, eqw = -13.19, gfwhm =  2.533
+1: center =  6676.85, flux = 3.88E-15, eqw = -21.08, gfwhm =   2.73
+1: center =  6676.85, flux = 3.51E-15, eqw = -14.08, gfwhm =  2.562
+1: center =  6676.85, flux = 3.83E-15, eqw = -19.78, gfwhm =  2.704
+1: center =  6676.86, flux = 4.11E-15, eqw = -27.79, gfwhm =  2.839
+
+1: center =  6562.02, flux = 5.30E-13, eqw = -2831., gfwhm =  2.667
+1: center =  6562.02, flux = 5.29E-13, eqw = -1568., gfwhm =  2.663
+1: center =    6562., flux = 5.29E-13, eqw = -1698., gfwhm =  2.664
+1: center =  6562.02, flux = 5.29E-13, eqw = -2120., gfwhm =  2.665
+1: center =  6562.02, flux = 5.30E-13, eqw = -3423., gfwhm =  2.667
+
+1: center =  5876.43, flux = 1.32E-14, eqw = -41.18, gfwhm =  2.561
+1: center =  5876.43, flux = 1.30E-14, eqw = -35.83, gfwhm =  2.527
+1: center =  5876.43, flux = 1.30E-14, eqw = -35.92, gfwhm =  2.527
+1: center =  5876.43, flux = 1.25E-14, eqw = -27.82, gfwhm =  2.458
+1: center =  5876.43, flux = 1.31E-14, eqw = -37.21, gfwhm =  2.536
+
+1: center =  4922.34, flux = 2.28E-15, eqw = -20.61, gfwhm =  1.506
+1: center =  4922.34, flux = 2.30E-15, eqw = -21.72, gfwhm =  1.517
+1: center =  4922.35, flux = 2.39E-15, eqw = -29.91, gfwhm =  1.565
+1: center =  4922.35, flux = 2.45E-15, eqw = -38.74, gfwhm =  1.597
+1: center =  4922.33, flux = 2.33E-15, eqw = -23.87, gfwhm =  1.536
+
+1: center =  4860.97, flux = 1.02E-13, eqw = -958.3, gfwhm =  2.956
+1: center =  4860.96, flux = 1.03E-13, eqw =  INDEF, gfwhm =  2.986
+1: center =  4860.97, flux = 1.05E-13, eqw =  INDEF, gfwhm =  3.022
+1: center =  4860.98, flux = 1.03E-13, eqw =  INDEF, gfwhm =  2.979
+1: center =  4860.97, flux = 1.02E-13, eqw = -1428., gfwhm =  2.961
+
+1: center =  4710.22, flux = 1.08E-14, eqw = -265.8, gfwhm =  3.746
+1: center =  4710.21, flux = 9.69E-15, eqw = -51.82, gfwhm =  3.515
+1: center =  4710.27, flux = 1.16E-14, eqw =  INDEF, gfwhm =  3.983
+1: center =  4710.18, flux = 1.13E-14, eqw =  INDEF, gfwhm =  3.882
+1: center =  4710.12, flux = 7.91E-15, eqw =  -19.8, gfwhm =  2.971
+
+1: center =  4439.56, flux = 1.79E-15, eqw =  INDEF, gfwhm =  1.372
+1: center =  4439.56, flux = 1.85E-15, eqw =  INDEF, gfwhm =  1.399
+1: center =  4439.58, flux = 1.52E-15, eqw =  INDEF, gfwhm =   1.18
+1: center =  4439.55, flux = 1.64E-15, eqw =  INDEF, gfwhm =  1.305
+1: center =  4439.57, flux = 1.57E-15, eqw =  INDEF, gfwhm =  1.223
+
+1: center =  4342.94, flux = 1.55E-14, eqw = -322.7, gfwhm =  3.152
+1: center =  4342.94, flux = 1.52E-14, eqw = -159.5, gfwhm =  3.104
+1: center =  4342.93, flux = 1.58E-14, eqw = -1059., gfwhm =  3.189
+1: center =  4342.93, flux = 1.63E-14, eqw =  INDEF, gfwhm =   3.27
+1: center =  4342.94, flux = 1.53E-14, eqw = -202.4, gfwhm =  3.124
+
+1: center =  4104.62, flux = 8.96E-15, eqw = -172.9, gfwhm =  4.178
+1: center =  4104.62, flux = 8.99E-15, eqw = -184.6, gfwhm =  4.189
+1: center =   4104.6, flux = 8.62E-15, eqw = -100.5, gfwhm =  4.055
+1: center =  4104.62, flux = 1.05E-14, eqw =  INDEF, gfwhm =  4.734
+1: center =  4104.63, flux = 8.73E-15, eqw = -115.6, gfwhm =  4.097
+
+1: center =  3975.48, flux = 1.18E-15, eqw =  INDEF, gfwhm =  1.988
+1: center =  3975.57, flux = 6.93E-16, eqw = -12.22, gfwhm =  1.325
+1: center =  3975.59, flux = 1.02E-15, eqw =  INDEF, gfwhm =  1.701
+1: center =  3975.55, flux = 1.05E-15, eqw =  INDEF, gfwhm =  1.761
+1: center =  3975.57, flux = 1.03E-15, eqw =  INDEF, gfwhm =  1.722
