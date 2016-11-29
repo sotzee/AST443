@@ -35,7 +35,7 @@
 
 import pyfits
 import numpy as np
-
+import sys
 # Python is an interpreted programming language, so we have to put all of our functions BEFORE
 # the main body of the code!
 
@@ -71,6 +71,13 @@ def ScienceExposure(rawscidata,masterdark,masterflat):
         ### !!! TODO FINISH THIS FUNCTION !!!
     
     scienceimage=scienceimage=(rawimage-masterdark)/masterflat # How should you combine the rawimage data with the masterdark and masterflat data?
+    print 'doing the wrong thing'
+    return scienceimage
+
+def SubtractDark(rawscidata,masterdark):
+    rawimage = rawscidata.data
+    scienceimage = rawimage-masterdark
+    print 'subtracting dark'
     return scienceimage
 
 # This is the end of the functions. The main body of the code begins below.
@@ -78,59 +85,39 @@ def ScienceExposure(rawscidata,masterdark,masterflat):
 # Each of these is an argument that needs to be on the calling of the script. 
 # Make sure you run with all arguments provided or you will run into errors!
 
-darkfilelist=list()
-flatfilelist=list()
-sciencefilelist=list()
-basename='processed'
-beginnum=0
-num=18
-for i in range(num):
-    if(i+beginnum<10):
-        darkfilelist.append('dark_30s.0000000'+str(beginnum+i)+'.DARK.FIT')
-    if(i+beginnum>=10):
-        darkfilelist.append('dark_30s.000000'+str(beginnum+i)+'.DARK.FIT')
-beginnum=476
-num=20
-for i in range(num):
-    darkfilelist.append('flatafter.00000'+str(beginnum+i)+'.DARK.FIT')
-    
-beginnum=20
-num=10
-for i in range(num):
-    flatfilelist.append('flat.000000'+str(beginnum+i)+'.FIT')
-    
-beginnum=33
-num=408
-for i in range(num):
-    if(i+beginnum<100):
-        sciencefilelist.append('flat.000000'+str(beginnum+i)+'.FIT')
-    if(i+beginnum>=100):
-        sciencefilelist.append('flat.00000'+str(beginnum+i)+'.FIT')
+darkfilelist=open(sys.argv[1],'r')    # First argument is a text file that lists the names of all dark current image file names
+flatfilelist=open(sys.argv[2],'r')    # Second argument is a text file that lists the names of all of the flat field images
+sciencefilelist=open(sys.argv[3],'r') # Third argument is a text file that lists the names of all the science images
+basename=sys.argv[4]        # All of the output files will start with the string value of basename.
 
+#sciecefilelist = 
 
 finaldark=AverageDark(darkfilelist) # Find function aboved
 
 finalflat=AverageFlat(flatfilelist) # Find function aboved
-
+#print sciencefilelist
+'''
 for sciencefile in sciencefilelist: # Loops though all science files to apply finaldark and finalflat corrections
-
     sciencefile = sciencefile.rstrip('\n')
+    print sciencefile
+    #sys.exit()
 
     rawdata=pyfits.open(sciencefile)[0] # This gets the 1st extension (starts with 0!), this is an example of 
                                         # using pyfits.open, this is a FITS file object
-    finalimage=ScienceExposure(rawdata,finaldark,finalflat) # Find function above
+    #finalimage=ScienceExposure(rawdata,finaldark,finalflat) # Find function above
+    finalimage=SubtractDark(rawdata,finaldark) # Find function above
     sciheader=rawdata.header # This grabs the header object from the FITS object rawdata
-    newscience=basename+'_'+sciencefile+'_clean.fits'  # Appending filenames onto the base
+    newscience=basename+'_'+sciencefile.rstrip('.FITS')+'.fits'  # Appending filenames onto the base
     sciencehdu=pyfits.PrimaryHDU(finalimage,header=sciheader)  # This converts a numpy array into a FITS object with a 
                                                                # data block (finalimage) and a header (sciheader)
     sciencehdu.writeto(newscience, clobber=True) # This writes the fits object to the file name newscience, which is 
                                                  # defined above The clobber means to overwrite the file if it already exists.
-
-newdark=basename+'_Master_Dark.fits'
+'''
+newdark=basename+'_Master_Dark_300s.fits'
 newflat=basename+'_Master_Flat.fits'
 
-darkhdu=pyfits.PrimaryHDU(finaldark)
-darkhdu.writeto(newdark, clobber=True)
+#darkhdu=pyfits.PrimaryHDU(finaldark)
+#darkhdu.writeto(newdark, clobber=True)
 
 flathdu=pyfits.PrimaryHDU(finalflat)
 flathdu.writeto(newflat, clobber=True)
